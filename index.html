@@ -1,0 +1,1272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HEXTDIN — All IT Solutions in Jaipur</title>
+<meta name="description" content="HEXTDIN is a Jaipur-based IT solutions provider handling networks, cloud, security, custom software and managed support — one dependable partner instead of five vendors.">
+<meta property="og:title" content="HEXTDIN — All IT Solutions in Jaipur">
+<meta property="og:description" content="Networks, cloud, security, software and managed IT support from one accountable local partner in Jaipur, Rajasthan.">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#0A101C">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230A101C'/%3E%3Ccircle cx='16' cy='16' r='6' fill='%234FD7C6'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy-950:#0A101C;
+    --navy-900:#101828;
+    --navy-800:#17213A;
+    --navy-700:#212D4A;
+    --cyan:#4FD7C6;
+    --cyan-dim:rgba(79,215,198,0.35);
+    --amber:#F2B84B;
+    --amber-dim:rgba(242,184,75,0.35);
+    --text-hi:#EAF0F7;
+    --text-mid:#AEB9CC;
+    --text-dim:#71809A;
+    --line: rgba(174,185,204,0.14);
+    --radius:14px;
+    --font-display:'Space Grotesk', sans-serif;
+    --font-body:'Inter', sans-serif;
+    --font-mono:'JetBrains Mono', monospace;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--navy-950);
+    color:var(--text-hi);
+    font-family:var(--font-body);
+    line-height:1.55;
+    overflow-x:hidden;
+  }
+  a{color:inherit; text-decoration:none;}
+  .wrap{max-width:1180px; margin:0 auto; padding:0 32px;}
+  ::selection{background:var(--cyan-dim); color:var(--text-hi);}
+
+  /* ---------- SCROLL PROGRESS ---------- */
+  .scroll-progress{
+    position:fixed; top:0; left:0; height:2.5px; width:0%; z-index:200;
+    background:linear-gradient(90deg, var(--cyan), var(--amber));
+    transition:width .1s linear;
+  }
+
+  /* ---------- NAV ---------- */
+  header{
+    position:fixed; top:0; left:0; right:0; z-index:100;
+    background:rgba(10,16,28,0.72);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--line);
+    transition:padding .25s ease, background .25s ease;
+  }
+  header.scrolled{background:rgba(10,16,28,0.92);}
+  header.scrolled nav{padding-top:12px; padding-bottom:12px;}
+  nav{
+    display:flex; align-items:center; justify-content:space-between;
+    padding:18px 32px; max-width:1180px; margin:0 auto;
+  }
+  .logo{
+    font-family:var(--font-display); font-weight:700; font-size:1.25rem;
+    letter-spacing:0.02em; display:flex; align-items:center; gap:10px;
+  }
+  .logo .dot{width:9px; height:9px; border-radius:50%; background:var(--cyan); box-shadow:0 0 12px 2px var(--cyan-dim); flex-shrink:0;}
+  .navlinks{display:flex; gap:36px; font-size:0.92rem; color:var(--text-mid);}
+  .navlinks a{transition:color .2s ease; position:relative;}
+  .navlinks a:hover, .navlinks a:focus-visible{color:var(--cyan);}
+  .navlinks a.active{color:var(--cyan);}
+  .navlinks a.active::after{
+    content:''; position:absolute; left:0; right:0; bottom:-6px; height:2px;
+    background:var(--cyan); border-radius:2px;
+  }
+  .nav-cta{
+    font-family:var(--font-mono); font-size:0.82rem; color:var(--navy-950);
+    background:var(--amber); padding:9px 18px; border-radius:999px; font-weight:500;
+    transition:transform .2s ease, box-shadow .2s ease;
+  }
+  .nav-cta:hover{transform:translateY(-1px); box-shadow:0 6px 20px -4px var(--amber-dim);}
+  .nav-toggle{
+    display:none; width:38px; height:38px; border:1px solid var(--line); border-radius:9px;
+    background:transparent; cursor:pointer; align-items:center; justify-content:center;
+    flex-direction:column; gap:4px;
+  }
+  .nav-toggle span{width:18px; height:1.5px; background:var(--text-hi); transition:transform .25s ease, opacity .25s ease;}
+  .nav-toggle.open span:nth-child(1){transform:translateY(5.5px) rotate(45deg);}
+  .nav-toggle.open span:nth-child(2){opacity:0;}
+  .nav-toggle.open span:nth-child(3){transform:translateY(-5.5px) rotate(-45deg);}
+  .mobile-panel{
+    display:none; flex-direction:column; gap:2px; padding:8px 32px 20px;
+    max-height:0; overflow:hidden; transition:max-height .3s ease;
+  }
+  .mobile-panel a{
+    padding:13px 0; font-size:1rem; color:var(--text-mid); border-top:1px solid var(--line);
+  }
+  .mobile-panel a.active{color:var(--cyan);}
+  .mobile-panel.open{max-height:320px;}
+  @media (max-width:760px){
+    .navlinks{display:none;}
+    .nav-cta{display:none;}
+    .nav-toggle{display:flex;}
+    .mobile-panel{display:flex;}
+  }
+
+  /* ---------- HERO ---------- */
+  .hero{
+    position:relative; padding:168px 0 120px; overflow:hidden;
+    border-bottom:1px solid var(--line);
+  }
+  .hero::before{
+    content:''; position:absolute; inset:0; z-index:1; pointer-events:none;
+    background:radial-gradient(560px circle at var(--mx,50%) var(--my,20%), rgba(79,215,198,0.10), transparent 60%);
+    transition:background .1s ease;
+  }
+  .hero-grid{position:absolute; inset:0; z-index:0; opacity:0.9;}
+  .hero-inner{
+    position:relative; z-index:2; display:grid;
+    grid-template-columns:1.08fr 0.92fr; gap:56px; align-items:center;
+  }
+  @media (max-width:940px){ .hero-inner{grid-template-columns:1fr; gap:44px;} }
+  .status-pill{
+    display:inline-flex; align-items:center; gap:8px;
+    font-family:var(--font-mono); font-size:0.78rem; letter-spacing:0.04em;
+    color:var(--cyan); border:1px solid var(--cyan-dim); background:rgba(79,215,198,0.06);
+    padding:7px 14px; border-radius:999px; margin-bottom:28px;
+  }
+  .status-pill .pulse{
+    width:7px; height:7px; border-radius:50%; background:var(--cyan);
+    animation:pulse 2s ease-in-out infinite;
+  }
+  @keyframes pulse{
+    0%,100%{box-shadow:0 0 0 0 var(--cyan-dim);}
+    50%{box-shadow:0 0 0 6px rgba(79,215,198,0);}
+  }
+  .hero h1{
+    font-family:var(--font-display); font-weight:700;
+    font-size:clamp(2.6rem, 6vw, 4.6rem); line-height:1.05; letter-spacing:-0.01em;
+    max-width:820px; color:var(--text-hi);
+  }
+  .hero h1 span{color:var(--cyan);}
+  .hero p.lede{
+    margin-top:26px; font-size:1.15rem; color:var(--text-mid); max-width:560px;
+  }
+  .hero-actions{display:flex; gap:16px; margin-top:40px; flex-wrap:wrap;}
+  .hero-email-note{
+    margin-top:20px; font-size:0.88rem; color:var(--text-dim);
+  }
+  .hero-email-note a{color:var(--cyan); transition:color .2s ease;}
+  .hero-email-note a:hover{color:var(--text-hi);}
+  .btn-primary{
+    background:var(--amber); color:var(--navy-950); font-weight:600; font-size:0.95rem;
+    padding:14px 26px; border-radius:10px; transition:transform .2s ease, box-shadow .2s ease;
+  }
+  .btn-primary:hover{transform:translateY(-2px); box-shadow:0 10px 30px -6px var(--amber-dim);}
+  .btn-ghost{
+    border:1px solid var(--line); color:var(--text-hi); font-size:0.95rem; font-weight:500;
+    padding:14px 26px; border-radius:10px; transition:border-color .2s ease, background .2s ease;
+  }
+  .btn-ghost:hover{border-color:var(--amber-dim); background:rgba(242,184,75,0.06);}
+  .btn-primary, .btn-ghost{will-change:transform;}
+
+  /* ---------- TERMINAL (hero signature element) ---------- */
+  .term{
+    background:var(--navy-900); border:1px solid var(--line); border-radius:var(--radius);
+    box-shadow:0 30px 60px -20px rgba(0,0,0,0.55), 0 0 0 1px rgba(79,215,198,0.04);
+    overflow:hidden; font-family:var(--font-mono); font-size:0.86rem;
+  }
+  .term-bar{
+    display:flex; align-items:center; gap:8px; padding:12px 16px;
+    background:var(--navy-800); border-bottom:1px solid var(--line);
+  }
+  .term-dot{width:9px; height:9px; border-radius:50%; opacity:0.85;}
+  .term-dot.r{background:#F2705A;} .term-dot.y{background:#F2B84B;} .term-dot.g{background:#4FD7C6;}
+  .term-title{margin-left:8px; color:var(--text-dim); font-size:0.76rem; letter-spacing:0.03em;}
+  .term-body{padding:22px 20px; min-height:230px; color:var(--text-mid);}
+  .term-line{white-space:pre-wrap; word-break:break-word; line-height:1.7; min-height:1.7em;}
+  .term-line .prompt{color:var(--cyan);}
+  .term-line .ok{color:var(--cyan);}
+  .term-cursor{
+    display:inline-block; width:7px; height:1.05em; background:var(--cyan);
+    vertical-align:text-bottom; margin-left:2px; animation:blink 1s step-end infinite;
+  }
+  @keyframes blink{50%{opacity:0;}}
+  @media (max-width:940px){ .term-body{min-height:190px;} }
+
+  /* ---------- SECTION HEADINGS ---------- */
+  .eyebrow{
+    font-family:var(--font-mono); font-size:0.78rem; color:var(--cyan);
+    letter-spacing:0.08em; text-transform:uppercase; margin-bottom:14px; display:block;
+  }
+  section{padding:100px 0;}
+  section h2{
+    font-family:var(--font-display); font-weight:600; font-size:clamp(1.8rem,3.4vw,2.6rem);
+    max-width:640px; letter-spacing:-0.01em;
+  }
+  section > .wrap > p.section-lede{color:var(--text-mid); max-width:560px; margin-top:16px; font-size:1.02rem;}
+
+  /* ---------- SERVICES ---------- */
+  .services{border-bottom:1px solid var(--line);}
+  .service-grid{
+    display:grid; grid-template-columns:repeat(3, 1fr); gap:1px;
+    background:var(--line); border:1px solid var(--line); border-radius:var(--radius);
+    overflow:hidden; margin-top:56px;
+  }
+  .service-card{
+    background:var(--navy-900); padding:34px 30px; transition:background .25s ease;
+  }
+  .service-card:hover{background:var(--navy-800);}
+  .service-card .sv-icon{
+    width:38px; height:38px; margin-bottom:22px; color:var(--cyan);
+  }
+  .service-card h3{
+    font-family:var(--font-display); font-weight:600; font-size:1.12rem; margin-bottom:10px;
+  }
+  .service-card p{color:var(--text-mid); font-size:0.94rem;}
+  @media (max-width:860px){ .service-grid{grid-template-columns:1fr 1fr;} }
+  @media (max-width:560px){ .service-grid{grid-template-columns:1fr;} }
+
+  /* ---------- ABOUT / WHY ---------- */
+  .about{border-bottom:1px solid var(--line);}
+  .about-layout{display:grid; grid-template-columns:0.9fr 1.1fr; gap:64px; margin-top:56px; align-items:start;}
+  .stat-block{display:grid; grid-template-columns:1fr 1fr; gap:28px 20px; margin-top:40px;}
+  .stat{border-left:2px solid var(--cyan-dim); padding-left:16px;}
+  .stat .num{font-family:var(--font-mono); font-size:1.7rem; color:var(--cyan); font-weight:500;}
+  .stat .lab{font-size:0.86rem; color:var(--text-mid); margin-top:4px;}
+  .about-copy p{color:var(--text-mid); margin-bottom:18px; font-size:1.02rem;}
+  .about-copy p:last-child{margin-bottom:0;}
+  @media (max-width:860px){ .about-layout{grid-template-columns:1fr;} }
+
+  /* ---------- PROCESS ---------- */
+  .process{border-bottom:1px solid var(--line);}
+  .process-list{margin-top:56px; display:flex; flex-direction:column;}
+  .process-row{
+    display:grid; grid-template-columns:70px 1fr; gap:24px; padding:26px 0;
+    border-top:1px solid var(--line);
+  }
+  .process-row:last-child{border-bottom:1px solid var(--line);}
+  .process-row .pidx{font-family:var(--font-mono); color:var(--text-dim); font-size:0.9rem; padding-top:2px;}
+  .process-row h4{font-family:var(--font-display); font-weight:600; font-size:1.08rem; margin-bottom:6px;}
+  .process-row p{color:var(--text-mid); font-size:0.95rem; max-width:560px;}
+
+  /* ---------- CONTACT ---------- */
+  .contact-panel{
+    margin-top:56px; border:1px solid var(--line); border-radius:var(--radius);
+    background:linear-gradient(180deg, var(--navy-900), var(--navy-950));
+    padding:52px; display:grid; grid-template-columns:1.1fr 0.9fr; gap:50px;
+  }
+  .contact-copy h3{font-family:var(--font-display); font-size:1.5rem; font-weight:600; margin-bottom:14px;}
+  .contact-copy p{color:var(--text-mid); margin-bottom:28px; max-width:420px;}
+  .contact-item{
+    display:flex; align-items:flex-start; gap:14px; padding:16px 0; border-top:1px solid var(--line);
+  }
+  .contact-item:last-child{padding-bottom:0;}
+  .contact-item .ci-icon{width:20px; height:20px; color:var(--cyan); flex-shrink:0; margin-top:3px;}
+  .contact-item .ci-label{font-family:var(--font-mono); font-size:0.72rem; color:var(--text-dim); text-transform:uppercase; letter-spacing:0.06em;}
+  .contact-item .ci-value{font-size:0.98rem; color:var(--text-hi); margin-top:3px; word-break:break-word;}
+  .contact-item a.ci-value:hover{color:var(--cyan);}
+  .ci-row{display:flex; align-items:flex-start; justify-content:space-between; gap:10px; flex:1;}
+  .ci-copy{
+    flex-shrink:0; width:30px; height:30px; border-radius:8px; border:1px solid var(--line);
+    background:transparent; color:var(--text-dim); cursor:pointer; display:flex;
+    align-items:center; justify-content:center; transition:border-color .2s ease, color .2s ease;
+  }
+  .ci-copy svg{width:14px; height:14px;}
+  .ci-copy:hover{border-color:var(--cyan-dim); color:var(--cyan);}
+  .ci-copy.copied{border-color:var(--cyan); color:var(--cyan);}
+  .map-embed{
+    margin-top:16px; border-radius:10px; overflow:hidden; border:1px solid var(--line);
+    height:200px;
+  }
+  .map-directions{
+    display:inline-flex; align-items:center; gap:6px; margin-top:10px;
+    font-size:0.82rem; color:var(--cyan); font-family:var(--font-mono);
+  }
+  .map-directions:hover{color:var(--text-hi);}
+  @media (max-width:860px){ .contact-panel{grid-template-columns:1fr; padding:36px 26px;} }
+
+  /* ---------- CONTACT FORM ---------- */
+  .cform{display:flex; flex-direction:column; gap:16px; margin-top:6px;}
+  .cform label{
+    font-family:var(--font-mono); font-size:0.72rem; color:var(--text-dim);
+    text-transform:uppercase; letter-spacing:0.06em; display:block; margin-bottom:7px;
+  }
+  .cform input, .cform textarea{
+    width:100%; background:var(--navy-950); border:1px solid var(--line); border-radius:9px;
+    color:var(--text-hi); font-family:var(--font-body); font-size:0.95rem;
+    padding:12px 14px; transition:border-color .2s ease, box-shadow .2s ease;
+  }
+  .cform input::placeholder, .cform textarea::placeholder{color:var(--text-dim);}
+  .cform input:focus, .cform textarea:focus{
+    outline:none; border-color:var(--cyan-dim); box-shadow:0 0 0 3px rgba(79,215,198,0.10);
+  }
+  .cform textarea{resize:vertical; min-height:88px; font-family:var(--font-body);}
+  .cform .cform-submit{
+    background:var(--amber); color:var(--navy-950); font-weight:600; font-size:0.95rem;
+    padding:13px 22px; border-radius:10px; border:none; cursor:pointer; font-family:inherit;
+    display:inline-flex; align-items:center; gap:9px; width:fit-content;
+    transition:transform .2s ease, box-shadow .2s ease;
+  }
+  .cform .cform-submit:hover{transform:translateY(-2px); box-shadow:0 10px 30px -6px var(--amber-dim);}
+  .cform .cform-note{font-size:0.78rem; color:var(--text-dim); margin-top:-2px;}
+  .cform .cform-note a{color:var(--cyan);}
+
+  /* ---------- HEALTH CHECK ---------- */
+  .health{border-bottom:1px solid var(--line);}
+  .health-panel{
+    margin-top:56px; border:1px solid var(--line); border-radius:var(--radius);
+    background:linear-gradient(180deg, var(--navy-900), var(--navy-950));
+    padding:44px;
+  }
+  @media (max-width:760px){ .health-panel{padding:30px 24px;} }
+  .health-step{display:none;}
+  .health-step.active{display:block;}
+  .health-progress{
+    display:flex; gap:6px; margin-bottom:30px;
+  }
+  .health-progress span{
+    height:3px; flex:1; background:var(--line); border-radius:3px; transition:background .3s ease;
+  }
+  .health-progress span.done{background:var(--cyan);}
+  .health-q{
+    font-family:var(--font-display); font-size:1.2rem; font-weight:600; margin-bottom:22px;
+  }
+  .health-opts{display:grid; grid-template-columns:1fr 1fr; gap:12px;}
+  @media (max-width:600px){ .health-opts{grid-template-columns:1fr;} }
+  .health-opt{
+    text-align:left; padding:16px 18px; border:1px solid var(--line); border-radius:10px;
+    background:var(--navy-950); color:var(--text-hi); font-family:inherit; font-size:0.94rem;
+    cursor:pointer; transition:border-color .2s ease, background .2s ease;
+  }
+  .health-opt:hover{border-color:var(--cyan-dim); background:var(--navy-800);}
+  .health-result h3{font-family:var(--font-display); font-size:1.3rem; margin-bottom:12px;}
+  .health-result p{color:var(--text-mid); margin-bottom:24px; max-width:560px;}
+  .health-result .tag{
+    display:inline-block; font-family:var(--font-mono); font-size:0.76rem; color:var(--cyan);
+    border:1px solid var(--cyan-dim); background:rgba(79,215,198,0.06);
+    padding:5px 12px; border-radius:999px; margin-bottom:16px;
+  }
+  .health-actions{display:flex; gap:14px; flex-wrap:wrap; margin-top:8px;}
+  .health-restart{
+    background:none; border:1px solid var(--line); color:var(--text-mid); font-family:inherit;
+    font-size:0.9rem; padding:13px 22px; border-radius:10px; cursor:pointer; transition:border-color .2s ease;
+  }
+  .health-restart:hover{border-color:var(--cyan-dim);}
+
+  /* ---------- VERIFY CERTIFICATE ---------- */
+  .verify{border-bottom:1px solid var(--line);}
+  .verify-panel{
+    margin-top:56px; border:1px solid var(--line); border-radius:var(--radius);
+    background:linear-gradient(180deg, var(--navy-900), var(--navy-950));
+    padding:44px; position:relative; overflow:hidden;
+  }
+  @media (max-width:760px){ .verify-panel{padding:30px 24px;} }
+  .verify-search{display:flex; gap:10px;}
+  @media (max-width:560px){ .verify-search{flex-direction:column;} }
+  .verify-search input{
+    flex:1; background:var(--navy-950); border:1px solid var(--line); border-radius:9px;
+    color:var(--text-hi); font-family:var(--font-body); font-size:0.95rem;
+    padding:13px 16px; transition:border-color .2s ease, box-shadow .2s ease;
+  }
+  .verify-search input::placeholder{color:var(--text-dim);}
+  .verify-search input:focus{
+    outline:none; border-color:var(--cyan-dim); box-shadow:0 0 0 3px rgba(79,215,198,0.10);
+  }
+  .verify-search button{
+    background:var(--amber); color:var(--navy-950); font-weight:600; font-size:0.95rem;
+    padding:13px 26px; border-radius:10px; border:none; cursor:pointer; font-family:inherit;
+    transition:transform .2s ease, box-shadow .2s ease; flex-shrink:0;
+  }
+  .verify-search button:hover{transform:translateY(-2px); box-shadow:0 10px 30px -6px var(--amber-dim);}
+  .verify-hint{margin-top:12px; font-size:0.8rem; color:var(--text-dim);}
+
+  .verify-result{margin-top:26px; display:none; overflow:hidden; border-radius:12px; border:1px solid var(--line); background:var(--navy-950); position:relative;}
+  .verify-result.show{display:block; animation:vr-fade .25s ease;}
+  @keyframes vr-fade{from{opacity:0; transform:translateY(6px);} to{opacity:1; transform:translateY(0);}}
+  .verify-result.verified::after{
+    content:''; position:absolute; left:0; right:0; top:0; height:40%;
+    background:linear-gradient(180deg, transparent, rgba(79,215,198,0.14), transparent);
+    animation:vr-scan 1.1s ease-out; pointer-events:none;
+  }
+  @keyframes vr-scan{from{transform:translateY(-100%);} to{transform:translateY(250%);}}
+  .verify-status{
+    display:flex; align-items:center; gap:9px; padding:14px 20px;
+    font-family:var(--font-mono); font-size:0.78rem; letter-spacing:0.04em; text-transform:uppercase;
+    border-bottom:1px solid var(--line);
+  }
+  .verify-status .vdot{width:7px; height:7px; border-radius:50%; background:currentColor; box-shadow:0 0 8px currentColor;}
+  .verify-result.verified .verify-status{color:var(--cyan);}
+  .verify-result.notfound .verify-status{color:var(--amber);}
+  .verify-body{padding:22px 20px 24px;}
+  .verify-name{font-family:var(--font-display); font-size:1.25rem; font-weight:600; margin-bottom:18px;}
+  .verify-grid{display:grid; grid-template-columns:1fr 1fr; gap:16px 24px;}
+  @media (max-width:560px){ .verify-grid{grid-template-columns:1fr;} }
+  .verify-field label{display:block; font-family:var(--font-mono); font-size:0.68rem; text-transform:uppercase; letter-spacing:0.06em; color:var(--text-dim); margin-bottom:5px;}
+  .verify-field .vval{font-size:0.95rem; color:var(--text-hi);}
+  .verify-field .vval.mono{font-family:var(--font-mono); color:var(--cyan);}
+  .verify-notfound p{color:var(--text-mid); font-size:0.92rem; line-height:1.6;}
+
+  /* ---------- FAQ ---------- */
+  .faq{border-bottom:1px solid var(--line);}
+  .faq-list{margin-top:56px; display:flex; flex-direction:column; gap:1px; background:var(--line); border:1px solid var(--line); border-radius:var(--radius); overflow:hidden;}
+  .faq-item{background:var(--navy-900);}
+  .faq-q{
+    width:100%; display:flex; align-items:center; justify-content:space-between; gap:20px;
+    padding:22px 26px; background:none; border:none; cursor:pointer; text-align:left;
+    font-family:var(--font-display); font-size:1.02rem; font-weight:600; color:var(--text-hi);
+  }
+  .faq-q .faq-icon{
+    flex-shrink:0; width:20px; height:20px; color:var(--cyan); transition:transform .3s ease;
+  }
+  .faq-item.open .faq-q .faq-icon{transform:rotate(45deg);}
+  .faq-a{max-height:0; overflow:hidden; transition:max-height .3s ease;}
+  .faq-a p{padding:0 26px 22px; color:var(--text-mid); font-size:0.96rem; max-width:640px;}
+
+  /* ---------- FLOATING ACTIONS ---------- */
+  .float-actions{
+    position:fixed; right:24px; bottom:24px; z-index:150;
+    display:flex; flex-direction:column; align-items:flex-end; gap:12px;
+  }
+  .float-btn{
+    width:52px; height:52px; border-radius:50%; display:flex; align-items:center; justify-content:center;
+    box-shadow:0 12px 28px -8px rgba(0,0,0,0.5); border:none; cursor:pointer;
+    transition:transform .2s ease, opacity .25s ease, visibility .25s ease;
+  }
+  .float-btn.wa{background:#25D366; color:#fff;}
+  .float-btn.wa:hover{transform:translateY(-3px) scale(1.05);}
+  .float-btn.top{
+    background:var(--navy-800); color:var(--text-hi); border:1px solid var(--line);
+    opacity:0; visibility:hidden; transform:translateY(8px);
+  }
+  .float-btn.top.show{opacity:1; visibility:visible; transform:translateY(0);}
+  .float-btn.top:hover{border-color:var(--cyan-dim); color:var(--cyan);}
+
+  /* ---------- MOBILE STICKY CONTACT BAR ---------- */
+  .mobile-bar{
+    display:none; position:fixed; left:0; right:0; bottom:0; z-index:140;
+    background:rgba(16,24,40,0.96); backdrop-filter:blur(10px);
+    border-top:1px solid var(--line);
+    padding:10px 14px calc(10px + env(safe-area-inset-bottom));
+    grid-template-columns:repeat(3, 1fr); gap:8px;
+  }
+  .mobile-bar a{
+    display:flex; flex-direction:column; align-items:center; gap:4px;
+    font-size:0.7rem; color:var(--text-mid); padding:6px 0; border-radius:8px;
+  }
+  .mobile-bar a svg{width:20px; height:20px; color:var(--cyan);}
+  .mobile-bar a.primary svg{color:var(--amber);}
+  @media (max-width:760px){
+    .mobile-bar{display:grid;}
+    body{padding-bottom:66px;}
+    .float-actions{bottom:78px;}
+  }
+
+  /* ---------- FOOTER ---------- */
+  footer{padding:36px 0 46px;}
+  .footer-row{
+    display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:14px;
+    font-size:0.85rem; color:var(--text-dim);
+  }
+  .footer-row .logo{font-size:1rem;}
+
+  /* ---------- REVEAL ---------- */
+  .reveal{opacity:0; transform:translateY(18px); transition:opacity .7s ease, transform .7s ease;}
+  .reveal.in{opacity:1; transform:translateY(0);}
+  .service-grid .service-card:nth-child(1){transition-delay:0ms;}
+  .service-grid .service-card:nth-child(2){transition-delay:70ms;}
+  .service-grid .service-card:nth-child(3){transition-delay:140ms;}
+  .service-grid .service-card:nth-child(4){transition-delay:210ms;}
+  .service-grid .service-card:nth-child(5){transition-delay:280ms;}
+  .process-row:nth-child(1){transition-delay:0ms;}
+  .process-row:nth-child(2){transition-delay:80ms;}
+  .process-row:nth-child(3){transition-delay:160ms;}
+  .process-row:nth-child(4){transition-delay:240ms;}
+
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+    .reveal{opacity:1; transform:none; transition:none;}
+    .status-pill .pulse{animation:none;}
+    .hero-grid *{animation:none !important;}
+    .term-cursor{animation:none;}
+    .hero::before{background:none;}
+  }
+</style>
+</head>
+<body>
+
+<div class="scroll-progress" id="scrollProgress"></div>
+<header id="siteHeader">
+  <nav>
+    <div class="logo"><span class="dot"></span>HEXTDIN</div>
+    <div class="navlinks">
+      <a href="#services">Services</a>
+      <a href="#about">About</a>
+      <a href="#process">Process</a>
+      <a href="#verify">Verify Certificate</a>
+      <a href="#faq">FAQ</a>
+      <a href="#contact">Contact</a>
+    </div>
+    <a class="nav-cta" href="mailto:LALITUCHIAA86@GMAIL.COM">Get in touch</a>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+  <div class="mobile-panel" id="mobilePanel">
+    <a href="#services">Services</a>
+    <a href="#about">About</a>
+    <a href="#process">Process</a>
+    <a href="#verify">Verify Certificate</a>
+    <a href="#faq">FAQ</a>
+    <a href="#contact">Contact</a>
+    <a href="mailto:LALITUCHIAA86@GMAIL.COM" style="color:var(--amber); font-weight:600;">Get in touch — Email us</a>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <svg class="hero-grid" id="heroGrid" viewBox="0 0 1180 640" preserveAspectRatio="xMidYMid slice" aria-hidden="true"></svg>
+    <div class="wrap hero-inner">
+      <div>
+        <div class="status-pill"><span class="pulse"></span>ALL SYSTEMS &amp; SERVICES ONLINE</div>
+        <h1>All your IT, <span>on one connection.</span></h1>
+        <p class="lede">HEXTDIN is a Jaipur-based IT solutions provider handling networks, cloud, security, software and support — so your business runs on one dependable partner instead of five different vendors.</p>
+        <div class="hero-actions">
+          <a class="btn-primary" href="mailto:LALITUCHIAA86@GMAIL.COM">Talk to HEXTDIN</a>
+          <a class="btn-ghost" href="#services">See what we do</a>
+        </div>
+      </div>
+      <div class="term reveal" aria-hidden="true">
+        <div class="term-bar">
+          <span class="term-dot r"></span><span class="term-dot y"></span><span class="term-dot g"></span>
+          <span class="term-title">hextdin — support session</span>
+        </div>
+        <div class="term-body" id="termBody"></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="services" id="services">
+    <div class="wrap">
+      <span class="eyebrow">Services</span>
+      <h2 class="reveal">Every layer of your IT stack, covered.</h2>
+      <p class="section-lede reveal">From the cables in your server room to the cloud your team logs into every morning — one team, one number to call.</p>
+      <div class="service-grid">
+
+        <div class="service-card reveal">
+          <svg class="sv-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="4" width="18" height="6" rx="1.5"/><rect x="3" y="14" width="18" height="6" rx="1.5"/><circle cx="7" cy="7" r="0.8" fill="currentColor" stroke="none"/><circle cx="7" cy="17" r="0.8" fill="currentColor" stroke="none"/></svg>
+          <h3>Network Infrastructure</h3>
+          <p>Design, wiring, and setup of secure, reliable office and server-room networks built to grow with you.</p>
+        </div>
+
+        <div class="service-card reveal">
+          <svg class="sv-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M7 18a4 4 0 0 1-1-7.9A5 5 0 0 1 15.6 8 4.5 4.5 0 0 1 17 17H7Z"/></svg>
+          <h3>Cloud Solutions</h3>
+          <p>Migration, hosting, and management of cloud infrastructure so your data is available anywhere, safely.</p>
+        </div>
+
+        <div class="service-card reveal">
+          <svg class="sv-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 3l7 3v6c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6l7-3Z"/></svg>
+          <h3>Cybersecurity</h3>
+          <p>Firewalls, endpoint protection, and monitoring that keep threats out and your business compliant.</p>
+        </div>
+
+        <div class="service-card reveal">
+          <svg class="sv-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M8 4 3 12l5 8M16 4l5 8-5 8M13 3l-2 18"/></svg>
+          <h3>Custom Software</h3>
+          <p>Web apps, internal tools, and integrations built around how your team actually works.</p>
+        </div>
+
+        <div class="service-card reveal">
+          <svg class="sv-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
+          <h3>IT Consulting &amp; Strategy</h3>
+          <p>Audits and roadmaps that match your technology spend to what your business actually needs.</p>
+        </div>
+
+        <div class="service-card reveal">
+          <svg class="sv-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 12a8 8 0 0 1 14.9-4M20 12a8 8 0 0 1-14.9 4"/><path d="M4 8v4h4M20 16v-4h-4"/></svg>
+          <h3>Managed IT Support</h3>
+          <p>Ongoing helpdesk, maintenance, and monitoring, so small issues get fixed before they become downtime.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="about" id="about">
+    <div class="wrap">
+      <span class="eyebrow">About HEXTDIN</span>
+      <div class="about-layout">
+        <div class="about-copy reveal">
+          <p>HEXTDIN was built around a simple idea: businesses shouldn't need a different vendor for every piece of their technology. We work as a single, accountable IT partner — close enough to visit, technical enough to trust with the details.</p>
+          <p>Based in Jaipur, we support organizations across the region with hands-on infrastructure work and remote support, backed by a team that treats your systems like they're our own.</p>
+        </div>
+        <div class="stat-block reveal">
+          <div class="stat"><div class="num">All-in-one</div><div class="lab">Networks, cloud, security &amp; software under one roof</div></div>
+          <div class="stat"><div class="num">Jaipur</div><div class="lab">Locally based, on-site when it matters</div></div>
+          <div class="stat"><div class="num">1 team</div><div class="lab">One point of contact for every IT need</div></div>
+          <div class="stat"><div class="num">Always on</div><div class="lab">Support built around your uptime, not office hours</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="process" id="process">
+    <div class="wrap">
+      <span class="eyebrow">How we work</span>
+      <h2 class="reveal">A straightforward path from problem to fix.</h2>
+      <div class="process-list">
+        <div class="process-row reveal">
+          <div class="pidx">01</div>
+          <div><h4>Assess</h4><p>We look at your current setup — hardware, network, software — and flag what's fragile or missing.</p></div>
+        </div>
+        <div class="process-row reveal">
+          <div class="pidx">02</div>
+          <div><h4>Plan</h4><p>You get a clear, priced recommendation. No bundled extras, no guesswork.</p></div>
+        </div>
+        <div class="process-row reveal">
+          <div class="pidx">03</div>
+          <div><h4>Implement</h4><p>Our team installs, configures, and tests everything before handing it back to you.</p></div>
+        </div>
+        <div class="process-row reveal">
+          <div class="pidx">04</div>
+          <div><h4>Support</h4><p>We stay on as your ongoing IT support, so problems get caught early.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="health" id="health">
+    <div class="wrap">
+      <span class="eyebrow">Quick check</span>
+      <h2 class="reveal">Not sure what you need? Answer two questions.</h2>
+      <p class="section-lede reveal">A 30-second pointer toward the right starting point — no commitment, no form to fill in yet.</p>
+
+      <div class="health-panel reveal">
+        <div class="health-progress"><span id="hp1"></span><span id="hp2"></span></div>
+
+        <div class="health-step active" id="hstep-1">
+          <div class="health-q">What's prompting you to look into IT support right now?</div>
+          <div class="health-opts">
+            <button class="health-opt" data-q1="down">Something's broken or kept going down</button>
+            <button class="health-opt" data-q1="grow">We're growing and outgrowing our setup</button>
+            <button class="health-opt" data-q1="secure">Worried about security or data safety</button>
+            <button class="health-opt" data-q1="cost">Too many vendors, want to simplify</button>
+          </div>
+        </div>
+
+        <div class="health-step" id="hstep-2">
+          <div class="health-q">How is your IT handled today?</div>
+          <div class="health-opts">
+            <button class="health-opt" data-q2="none">No dedicated support — we handle it ourselves</button>
+            <button class="health-opt" data-q2="freelance">A freelancer or one-person setup</button>
+            <button class="health-opt" data-q2="multiple">Several different vendors</button>
+            <button class="health-opt" data-q2="inhouse">An in-house team, but stretched thin</button>
+          </div>
+        </div>
+
+        <div class="health-step" id="hstep-result">
+          <div class="health-result">
+            <span class="tag" id="hr-tag">RECOMMENDATION</span>
+            <h3 id="hr-title"></h3>
+            <p id="hr-body"></p>
+            <div class="health-actions">
+              <a class="btn-primary" id="hr-cta" href="mailto:LALITUCHIAA86@GMAIL.COM">Talk to HEXTDIN about this</a>
+              <button class="health-restart" id="hr-restart">Start over</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="faq" id="faq">
+    <div class="wrap">
+      <span class="eyebrow">FAQ</span>
+      <h2 class="reveal">Common questions, straight answers.</h2>
+      <div class="faq-list reveal">
+
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false">
+            Do you only work with businesses in Jaipur?
+            <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg>
+          </button>
+          <div class="faq-a"><p>We're based in Jaipur and prioritize on-site visits locally. For cloud, security, and software work, we also support teams outside the region remotely.</p></div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false">
+            How is pricing worked out?
+            <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg>
+          </button>
+          <div class="faq-a"><p>We assess your setup first, then send a priced recommendation. No fixed packages and no bundled extras you didn't ask for.</p></div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false">
+            Do I need to replace my existing setup?
+            <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg>
+          </button>
+          <div class="faq-a"><p>Usually not. We work with what you already have where it makes sense, and only recommend replacing what's actually fragile or outdated.</p></div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false">
+            What happens after the initial fix?
+            <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg>
+          </button>
+          <div class="faq-a"><p>If you sign up for ongoing support, we stay on as your IT partner — monitoring, maintenance, and a single number to call when something comes up.</p></div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false">
+            How fast can you respond to an issue?
+            <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg>
+          </button>
+          <div class="faq-a"><p>Message us on WhatsApp or email — that's the fastest way to reach the team directly for urgent issues.</p></div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="verify" id="verify">
+    <div class="wrap">
+      <span class="eyebrow">Certificate verification</span>
+      <h2 class="reveal">Verify a HEXTDIN internship certificate.</h2>
+      <p class="section-lede reveal">Search by intern name to confirm a certificate and dispatch number were genuinely issued by HEXTDIN IT Solutions.</p>
+
+      <div class="verify-panel reveal">
+        <div class="verify-search">
+          <input type="text" id="vInput" placeholder="Enter intern name, e.g. Ritika Gupta" autocomplete="off">
+          <button type="button" id="vBtn">Verify</button>
+        </div>
+        <div class="verify-hint">Tip: press Enter after typing a name to search.</div>
+        <div class="verify-result" id="vResult"></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact" id="contact">
+    <div class="wrap">
+      <span class="eyebrow">Contact</span>
+      <h2 class="reveal">Let's fix your IT.</h2>
+      <p class="section-lede reveal">Reach out and we'll get back to you about your network, cloud, security, or support needs.</p>
+
+      <div class="contact-panel reveal">
+        <div class="contact-copy">
+          <h3>Get in touch with HEXTDIN</h3>
+          <p>Whether it's a single fix or a full IT overhaul, tell us what's going on and we'll take it from there.</p>
+          <form class="cform" id="waForm">
+            <div>
+              <label for="cf-name">Your name</label>
+              <input type="text" id="cf-name" name="name" placeholder="e.g. Priya Sharma" required>
+            </div>
+            <div>
+              <label for="cf-contact">Phone or email</label>
+              <input type="text" id="cf-contact" name="contact" placeholder="How we can reach you back" required>
+            </div>
+            <div>
+              <label for="cf-message">What do you need help with?</label>
+              <textarea id="cf-message" name="message" placeholder="Tell us about your network, cloud, security, or support needs"></textarea>
+            </div>
+            <button type="submit" class="cform-submit">
+              <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.4A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1-.2.2-.7.8-.8 1-.2.2-.3.2-.5.1-.2-.1-1-.4-1.9-1.2-.7-.6-1.2-1.4-1.3-1.6-.2-.2 0-.4.1-.5l.4-.5c.1-.2.2-.3.2-.5.1-.2 0-.4 0-.5-.1-.1-.6-1.5-.8-2-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.3-.2.2-.9.9-.9 2.2s1 2.6 1.1 2.7c.1.2 2 3 4.7 4.2.7.3 1.2.5 1.6.6.7.2 1.3.2 1.8.1.5-.1 1.5-.6 1.8-1.2.2-.6.2-1.1.2-1.2-.1-.2-.3-.2-.5-.3Z"/></svg>
+              Send via WhatsApp
+            </button>
+            <p class="cform-note">Opens WhatsApp with your details filled in — just hit send. Prefer email? <a href="mailto:LALITUCHIAA86@GMAIL.COM">Email us instead</a>.</p>
+          </form>
+        </div>
+        <div class="contact-details">
+
+          <div class="contact-item">
+            <svg class="ci-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m4 6 8 7 8-7"/></svg>
+            <div class="ci-row">
+              <div>
+                <div class="ci-label">Email</div>
+                <a class="ci-value" href="mailto:LALITUCHIAA86@GMAIL.COM">LALITUCHIAA86@GMAIL.COM</a>
+              </div>
+              <button class="ci-copy" data-copy="LALITUCHIAA86@GMAIL.COM" aria-label="Copy email">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg>
+              </button>
+            </div>
+          </div>
+
+          <div class="contact-item">
+            <svg class="ci-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 4h4l2 5-2.5 1.5a12 12 0 0 0 6 6L15 14l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 4 6a2 2 0 0 1 0-2Z"/></svg>
+            <div class="ci-row">
+              <div>
+                <div class="ci-label">Phone</div>
+                <a class="ci-value" href="tel:+918079068750">+91 80790 68750</a>
+              </div>
+              <button class="ci-copy" data-copy="+91 80790 68750" aria-label="Copy phone number">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg>
+              </button>
+            </div>
+          </div>
+
+          <div class="contact-item">
+            <svg class="ci-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 21s7-6.2 7-11.5A7 7 0 0 0 5 9.5C5 14.8 12 21 12 21Z"/><circle cx="12" cy="9.5" r="2.3"/></svg>
+            <div>
+              <div class="ci-label">Address</div>
+              <span class="ci-value">A31/1, Acharya Vinoba Bhave Nagar,<br>Vaishali Nagar, Jaipur, Rajasthan</span>
+            </div>
+          </div>
+
+          <div class="map-embed">
+            <iframe
+              src="https://www.google.com/maps?q=A31%2F1%2C+Acharya+Vinoba+Bhave+Nagar%2C+Vaishali+Nagar%2C+Jaipur%2C+Rajasthan&output=embed"
+              width="100%" height="100%" style="border:0;" loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade" title="HEXTDIN location map"></iframe>
+          </div>
+          <a class="map-directions" href="https://www.google.com/maps/dir/?api=1&destination=A31%2F1%2C+Acharya+Vinoba+Bhave+Nagar%2C+Vaishali+Nagar%2C+Jaipur%2C+Rajasthan" target="_blank" rel="noopener">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s7-6.2 7-11.5A7 7 0 0 0 5 9.5C5 14.8 12 21 12 21Z"/><circle cx="12" cy="9.5" r="2.3"/></svg>
+            Get directions
+          </a>
+
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap footer-row">
+    <div class="logo"><span class="dot"></span>HEXTDIN</div>
+    <div>All IT Solutions — Jaipur, Rajasthan</div>
+  </div>
+</footer>
+
+<div class="mobile-bar">
+  <a href="tel:+918079068750">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 4h4l2 5-2.5 1.5a12 12 0 0 0 6 6L15 14l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 4 6a2 2 0 0 1 0-2Z"/></svg>
+    Call
+  </a>
+  <a href="https://wa.me/918079068750" target="_blank" rel="noopener">
+    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.4A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1-.2.2-.7.8-.8 1-.2.2-.3.2-.5.1-.2-.1-1-.4-1.9-1.2-.7-.6-1.2-1.4-1.3-1.6-.2-.2 0-.4.1-.5l.4-.5c.1-.2.2-.3.2-.5.1-.2 0-.4 0-.5-.1-.1-.6-1.5-.8-2-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.3-.2.2-.9.9-.9 2.2s1 2.6 1.1 2.7c.1.2 2 3 4.7 4.2.7.3 1.2.5 1.6.6.7.2 1.3.2 1.8.1.5-.1 1.5-.6 1.8-1.2.2-.6.2-1.1.2-1.2-.1-.2-.3-.2-.5-.3Z"/></svg>
+    WhatsApp
+  </a>
+  <a class="primary" href="mailto:LALITUCHIAA86@GMAIL.COM">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m4 6 8 7 8-7"/></svg>
+    Email
+  </a>
+</div>
+
+<div class="float-actions">
+  <a class="float-btn wa" href="https://wa.me/918079068750" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.4A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1-.2.2-.7.8-.8 1-.2.2-.3.2-.5.1-.2-.1-1-.4-1.9-1.2-.7-.6-1.2-1.4-1.3-1.6-.2-.2 0-.4.1-.5l.4-.5c.1-.2.2-.3.2-.5.1-.2 0-.4 0-.5-.1-.1-.6-1.5-.8-2-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.3-.2.2-.9.9-.9 2.2s1 2.6 1.1 2.7c.1.2 2 3 4.7 4.2.7.3 1.2.5 1.6.6.7.2 1.3.2 1.8.1.5-.1 1.5-.6 1.8-1.2.2-.6.2-1.1.2-1.2-.1-.2-.3-.2-.5-.3Z"/></svg>
+  </a>
+  <button class="float-btn top" id="backToTop" aria-label="Back to top">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+  </button>
+</div>
+
+<script>
+  // Build a subtle animated node network for the hero background
+  (function(){
+    const svgns = "http://www.w3.org/2000/svg";
+    const svg = document.getElementById('heroGrid');
+    const W = 1180, H = 640;
+    const nodes = [];
+    const cols = 7, rows = 4;
+    for(let r=0;r<rows;r++){
+      for(let c=0;c<cols;c++){
+        if(Math.random() > 0.62) continue;
+        const x = (c/(cols-1))*W + (Math.random()-0.5)*60;
+        const y = 90 + (r/(rows-1))*380 + (Math.random()-0.5)*60;
+        nodes.push({x,y});
+      }
+    }
+    const defs = document.createElementNS(svgns,'defs');
+    const grad = document.createElementNS(svgns,'linearGradient');
+    grad.setAttribute('id','fadeGrad');
+    grad.setAttribute('x1','0'); grad.setAttribute('x2','1'); grad.setAttribute('y1','0'); grad.setAttribute('y2','1');
+    grad.innerHTML = '<stop offset="0%" stop-color="#4FD7C6" stop-opacity="0.55"/><stop offset="100%" stop-color="#4FD7C6" stop-opacity="0.05"/>';
+    defs.appendChild(grad);
+    svg.appendChild(defs);
+
+    const g = document.createElementNS(svgns,'g');
+    svg.appendChild(g);
+
+    // connect nearby nodes
+    for(let i=0;i<nodes.length;i++){
+      for(let j=i+1;j<nodes.length;j++){
+        const dx = nodes[i].x-nodes[j].x, dy = nodes[i].y-nodes[j].y;
+        const dist = Math.sqrt(dx*dx+dy*dy);
+        if(dist < 220){
+          const line = document.createElementNS(svgns,'line');
+          line.setAttribute('x1', nodes[i].x); line.setAttribute('y1', nodes[i].y);
+          line.setAttribute('x2', nodes[j].x); line.setAttribute('y2', nodes[j].y);
+          line.setAttribute('stroke', 'url(#fadeGrad)');
+          line.setAttribute('stroke-width', '1');
+          g.appendChild(line);
+        }
+      }
+    }
+    nodes.forEach((n, i)=>{
+      const c = document.createElementNS(svgns,'circle');
+      c.setAttribute('cx', n.x); c.setAttribute('cy', n.y); c.setAttribute('r', '2.4');
+      c.setAttribute('fill', '#4FD7C6');
+      c.setAttribute('opacity', '0.75');
+      const anim = document.createElementNS(svgns,'animate');
+      anim.setAttribute('attributeName','opacity');
+      anim.setAttribute('values','0.25;0.85;0.25');
+      anim.setAttribute('dur', (3 + Math.random()*3)+'s');
+      anim.setAttribute('begin', (Math.random()*3)+'s');
+      anim.setAttribute('repeatCount','indefinite');
+      c.appendChild(anim);
+      g.appendChild(c);
+    });
+  })();
+
+  // Reveal-on-scroll
+  (function(){
+    const els = document.querySelectorAll('.reveal');
+    const io = new IntersectionObserver((entries)=>{
+      entries.forEach(e=>{
+        if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); }
+      });
+    }, {threshold:0.15});
+    els.forEach(el=>io.observe(el));
+  })();
+
+  // Cursor-reactive glow behind the hero
+  (function(){
+    const hero = document.querySelector('.hero');
+    if(!hero || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    hero.addEventListener('pointermove', (e)=>{
+      const r = hero.getBoundingClientRect();
+      hero.style.setProperty('--mx', ((e.clientX - r.left) / r.width * 100) + '%');
+      hero.style.setProperty('--my', ((e.clientY - r.top) / r.height * 100) + '%');
+    });
+  })();
+
+  // Terminal typing sequence — simulates a real HEXTDIN support session
+  (function(){
+    const body = document.getElementById('termBody');
+    if(!body) return;
+    const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    const script = [
+      { type:'cmd', text:'hextdin diagnose --network' },
+      { type:'out', text:'scanning 1 office network...' },
+      { type:'ok',  text:'0 critical issues found' },
+      { type:'cmd', text:'hextdin patch --security' },
+      { type:'out', text:'applying pending updates...' },
+      { type:'ok',  text:'updates applied, endpoints secured' },
+      { type:'cmd', text:'hextdin status' },
+      { type:'ok',  text:'all systems online ✓' },
+    ];
+
+    function render(){
+      body.innerHTML = script.map(l=>{
+        const cls = l.type === 'cmd' ? 'prompt' : (l.type === 'ok' ? 'ok' : '');
+        const prefix = l.type === 'cmd' ? '$ ' : '  ';
+        return `<div class="term-line"><span class="${cls}">${prefix}${l.text}</span></div>`;
+      }).join('');
+    }
+
+    if(reduced){ render(); return; }
+
+    let li = 0, ci = 0;
+    const lineEls = [];
+
+    function typeNext(){
+      if(li >= script.length){
+        const last = lineEls[lineEls.length-1];
+        if(last) last.insertAdjacentHTML('beforeend', '<span class="term-cursor"></span>');
+        return;
+      }
+      const line = script[li];
+      if(ci === 0){
+        const div = document.createElement('div');
+        div.className = 'term-line';
+        body.appendChild(div);
+        lineEls.push(div);
+      }
+      const el = lineEls[lineEls.length-1];
+      const cls = line.type === 'cmd' ? 'prompt' : (line.type === 'ok' ? 'ok' : '');
+      const prefix = line.type === 'cmd' ? '$ ' : '  ';
+      const shown = line.text.slice(0, ci+1);
+      el.innerHTML = `<span class="${cls}">${prefix}${shown}</span><span class="term-cursor"></span>`;
+      ci++;
+      if(ci <= line.text.length){
+        setTimeout(typeNext, line.type === 'cmd' ? 28 : 14);
+      } else {
+        li++; ci = 0;
+        setTimeout(typeNext, line.type === 'cmd' ? 260 : 420);
+      }
+    }
+    typeNext();
+  })();
+
+  // Subtle magnetic pull on primary buttons
+  (function(){
+    if(window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    document.querySelectorAll('.btn-primary, .btn-ghost').forEach(btn=>{
+      btn.addEventListener('pointermove', (e)=>{
+        const r = btn.getBoundingClientRect();
+        const x = (e.clientX - r.left - r.width/2) * 0.18;
+        const y = (e.clientY - r.top - r.height/2) * 0.28;
+        btn.style.transform = `translate(${x}px, ${y}px)`;
+      });
+      btn.addEventListener('pointerleave', ()=>{ btn.style.transform = ''; });
+    });
+  })();
+
+  // Contact form -> WhatsApp deep link
+  (function(){
+    const form = document.getElementById('waForm');
+    if(!form) return;
+    const WHATSAPP_NUMBER = '918079068750'; // country code + number, no + or spaces
+
+    form.addEventListener('submit', (e)=>{
+      e.preventDefault();
+      const name = document.getElementById('cf-name').value.trim();
+      const contact = document.getElementById('cf-contact').value.trim();
+      const message = document.getElementById('cf-message').value.trim();
+
+      let text = `New enquiry from the HEXTDIN website:\n\nName: ${name}\nContact: ${contact}`;
+      if(message) text += `\nMessage: ${message}`;
+
+      const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(text)}`;
+      window.open(url, '_blank', 'noopener');
+    });
+  })();  // Scroll progress bar + header shrink
+  (function(){
+    const bar = document.getElementById('scrollProgress');
+    const header = document.getElementById('siteHeader');
+    const backTop = document.getElementById('backToTop');
+    function onScroll(){
+      const h = document.documentElement;
+      const scrolled = h.scrollTop;
+      const max = h.scrollHeight - h.clientHeight;
+      if(bar) bar.style.width = (max > 0 ? (scrolled / max) * 100 : 0) + '%';
+      if(header) header.classList.toggle('scrolled', scrolled > 40);
+      if(backTop) backTop.classList.toggle('show', scrolled > 500);
+    }
+    document.addEventListener('scroll', onScroll, {passive:true});
+    onScroll();
+  })();
+
+  // Mobile nav toggle
+  (function(){
+    const toggle = document.getElementById('navToggle');
+    const panel = document.getElementById('mobilePanel');
+    if(!toggle || !panel) return;
+    toggle.addEventListener('click', ()=>{
+      const open = panel.classList.toggle('open');
+      toggle.classList.toggle('open', open);
+      toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+    panel.querySelectorAll('a').forEach(a=>{
+      a.addEventListener('click', ()=>{
+        panel.classList.remove('open');
+        toggle.classList.remove('open');
+        toggle.setAttribute('aria-expanded', 'false');
+      });
+    });
+  })();
+
+  // Scrollspy — highlight the nav link for the section in view
+  (function(){
+    const sections = document.querySelectorAll('main section[id]');
+    const navLinks = document.querySelectorAll('.navlinks a, .mobile-panel a[href^="#"]');
+    if(!sections.length || !navLinks.length) return;
+    const io = new IntersectionObserver((entries)=>{
+      entries.forEach(entry=>{
+        if(entry.isIntersecting){
+          const id = entry.target.id;
+          navLinks.forEach(a=>{
+            a.classList.toggle('active', a.getAttribute('href') === '#' + id);
+          });
+        }
+      });
+    }, {rootMargin:'-45% 0px -50% 0px'});
+    sections.forEach(s=>io.observe(s));
+  })();
+
+  // FAQ accordion
+  (function(){
+    document.querySelectorAll('.faq-item').forEach(item=>{
+      const q = item.querySelector('.faq-q');
+      const a = item.querySelector('.faq-a');
+      q.addEventListener('click', ()=>{
+        const isOpen = item.classList.contains('open');
+        document.querySelectorAll('.faq-item.open').forEach(other=>{
+          if(other !== item){
+            other.classList.remove('open');
+            other.querySelector('.faq-q').setAttribute('aria-expanded', 'false');
+            other.querySelector('.faq-a').style.maxHeight = null;
+          }
+        });
+        item.classList.toggle('open', !isOpen);
+        q.setAttribute('aria-expanded', (!isOpen).toString());
+        a.style.maxHeight = !isOpen ? a.scrollHeight + 'px' : null;
+      });
+    });
+  })();
+
+  // Back to top
+  (function(){
+    const btn = document.getElementById('backToTop');
+    if(!btn) return;
+    btn.addEventListener('click', ()=>{
+      window.scrollTo({top:0, behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth'});
+    });
+  })();  // IT Health Check — 2-step interactive assessment
+  (function(){
+    const panel = document.querySelector('.health-panel');
+    if(!panel) return;
+    const step1 = document.getElementById('hstep-1');
+    const step2 = document.getElementById('hstep-2');
+    const stepR = document.getElementById('hstep-result');
+    const hp1 = document.getElementById('hp1');
+    const hp2 = document.getElementById('hp2');
+    let answer1 = null;
+
+    const outcomes = {
+      down: {
+        title: 'Start with a support & monitoring setup.',
+        body: "Recurring downtime usually means issues are being caught after they happen, not before. Managed IT Support with ongoing monitoring is the fastest way to stop small problems from becoming outages."
+      },
+      grow: {
+        title: 'Start with an infrastructure review.',
+        body: "Outgrowing your setup is common — the fix is usually Network Infrastructure and Cloud Solutions work sized for where you're headed, not just where you are today."
+      },
+      secure: {
+        title: 'Start with a security assessment.',
+        body: "Before adding anything new, it's worth getting a clear picture of your current exposure. A Cybersecurity audit tells you exactly what to fix first."
+      },
+      cost: {
+        title: 'Start with an IT consolidation plan.',
+        body: "Juggling several vendors usually costs more than it saves. IT Consulting & Strategy can map what you have today into a single, accountable setup."
+      }
+    };
+
+    function showStep(el){
+      [step1, step2, stepR].forEach(s => s.classList.remove('active'));
+      el.classList.add('active');
+    }
+
+    panel.querySelectorAll('[data-q1]').forEach(btn=>{
+      btn.addEventListener('click', ()=>{
+        answer1 = btn.getAttribute('data-q1');
+        hp1.classList.add('done');
+        showStep(step2);
+      });
+    });
+
+    panel.querySelectorAll('[data-q2]').forEach(btn=>{
+      btn.addEventListener('click', ()=>{
+        hp2.classList.add('done');
+        const outcome = outcomes[answer1] || outcomes.cost;
+        document.getElementById('hr-title').textContent = outcome.title;
+        document.getElementById('hr-body').textContent = outcome.body;
+        showStep(stepR);
+      });
+    });
+
+    document.getElementById('hr-restart').addEventListener('click', ()=>{
+      answer1 = null;
+      hp1.classList.remove('done');
+      hp2.classList.remove('done');
+      showStep(step1);
+    });
+  })();  // Copy-to-clipboard for email/phone
+  (function(){
+    document.querySelectorAll('.ci-copy').forEach(btn=>{
+      btn.addEventListener('click', async ()=>{
+        const text = btn.getAttribute('data-copy');
+        try{
+          await navigator.clipboard.writeText(text);
+        }catch(e){
+          const ta = document.createElement('textarea');
+          ta.value = text; document.body.appendChild(ta); ta.select();
+          document.execCommand('copy'); document.body.removeChild(ta);
+        }
+        btn.classList.add('copied');
+        setTimeout(()=>btn.classList.remove('copied'), 1500);
+      });
+    });
+  })();
+
+  // Verify Certificate — name search against dispatch records
+  (function(){
+    const input = document.getElementById('vInput');
+    const btn = document.getElementById('vBtn');
+    const box = document.getElementById('vResult');
+    if(!input || !btn || !box) return;
+
+    const RECORDS = [
+      { name:"Mohit Kumar Mourya", dispatch:"HEXTDIN/2026/01", course:"B.Sc.", role:"Web Development", duration:"Feb 01 – Mar 30, 2026" },
+      { name:"Adit Sharma", dispatch:"HEXTDIN/2026/02", course:"BCA", role:"Web Development", duration:"Feb 01 – Mar 30, 2026" },
+      { name:"Ashish Kumawat", dispatch:"HEXTDIN/2026/03", course:"BCA", role:"Web Development", duration:"Feb 01 – Mar 30, 2026" },
+      { name:"Karishma Meena", dispatch:"HEXTDIN/2026/04", course:"B.A.", role:"Web Development", duration:"Feb 01 – Mar 30, 2026" },
+      { name:"Pavan Kumar Prajapat", dispatch:"HEXTDIN/2026/05", course:"B.Sc.", role:"Web Development", duration:"Feb 01 – Mar 30, 2026" },
+      { name:"Abhishek Yadav", dispatch:"HEXTDIN/2026/06", course:"B.Sc.", role:"Web Development", duration:"Feb 01 – Mar 30, 2026" },
+      { name:"Saurav Gadhwal", dispatch:"HEXTDIN/2026/07", course:"BCA", role:"Web Development", duration:"Feb 01 – Mar 30, 2026" },
+      { name:"Anil Seju", dispatch:"HEXTDIN/2026/08", course:"B.Sc.", role:"Web Development", duration:"Apr 06 – May 06, 2026" },
+      { name:"Keshav Kumawat", dispatch:"HEXTDIN/2026/09", course:"BCA", role:"Web Development", duration:"Apr 06 – May 06, 2026" },
+      { name:"Sohan Lal Yadav", dispatch:"HEXTDIN/2026/10", course:"B.Sc.", role:"Web Development", duration:"Apr 06 – May 06, 2026" },
+      { name:"Yashwin Kumawat", dispatch:"HEXTDIN/2026/11", course:"BCA", role:"Web Development", duration:"Apr 06 – May 06, 2026" },
+      { name:"Vikas Kala", dispatch:"HEXTDIN/2026/12", course:"B.Sc.", role:"Web Development", duration:"Apr 06 – May 06, 2026" },
+      { name:"Sahil Choudhary", dispatch:"HEXTDIN/2026/13", course:"B.Sc.", role:"Web Development", duration:"Apr 06 – May 06, 2026" },
+      { name:"Annu Kumari", dispatch:"HEXTDIN/2026/14", course:"B.A.", role:"Marketing Executive", duration:"Apr 06 – May 06, 2026" },
+      { name:"Ritika Gupta", dispatch:"HEXTDIN/2026/15", course:"B.A.", role:"Marketing Executive", duration:"Mar 06 – Apr 06, 2026" },
+      { name:"Yogesh Sharma", dispatch:"HEXTDIN/2026/16", course:"BCA", role:"Web Development", duration:"Apr 06 – May 06, 2026" },
+      { name:"Kana Ram Meena", dispatch:"HEXTDIN/2026/17", course:"B.Sc.", role:"Web Development", duration:"Apr 06 – May 06, 2026" },
+      { name:"Ayan Ali", dispatch:"HEXTDIN/2026/18", course:"B.Sc.", role:"Web Development", duration:"Apr 06 – May 06, 2026" },
+      { name:"Shreyansh Sharma", dispatch:"HEXTDIN/2026/19", course:"BCA", role:"Web Development", duration:"Apr 06 – May 06, 2026" },
+      { name:"Mohit Singh Shekhawat", dispatch:"HEXTDIN/2026/20", course:"B.A.", role:"Marketing", duration:"Apr 06 – May 06, 2026" },
+      { name:"Mohit Tiwari", dispatch:"HEXTDIN/2026/21", course:"B.Sc.", role:"Web Development", duration:"Apr 06 – May 06, 2026" },
+      { name:"Naveen Kumar", dispatch:"HEXTDIN/2026/22", course:"B.Sc.", role:"Web Development", duration:"Apr 06 – May 06, 2026" },
+      { name:"Garvita Chauhan", dispatch:"HEXTDIN/2026/23", course:"MCA (AI & Data Science)", role:"Data Analytics", duration:"Jan 15 – Jun 15, 2026" },
+      { name:"Siddharth", dispatch:"HEXTDIN/2026/24", course:"BCA", role:"Web Development", duration:"Apr 06 – May 06, 2026" },
+      { name:"Sanjana Sanwariya", dispatch:"HEXTDIN/2026/25", course:"B.A.", role:"Web Development", duration:"Jun 03 – Jul 17, 2026" }
+    ];
+
+    function norm(s){ return (s||'').toLowerCase().trim().replace(/\s+/g,' '); }
+    function esc(s){ const d=document.createElement('div'); d.innerText=s; return d.innerHTML; }
+
+    function find(query){
+      const q = norm(query);
+      if(!q) return null;
+      const exact = RECORDS.find(r => norm(r.name) === q);
+      if(exact) return exact;
+      const partial = RECORDS.filter(r => norm(r.name).indexOf(q) !== -1);
+      return partial.length ? partial[0] : null;
+    }
+
+    function render(query){
+      const match = find(query);
+      if(!norm(query)){ box.className='verify-result'; box.innerHTML=''; return; }
+
+      if(match){
+        box.className = 'verify-result show verified';
+        box.innerHTML = `
+          <div class="verify-status"><span class="vdot"></span>Verified — record found</div>
+          <div class="verify-body">
+            <p class="verify-name">${esc(match.name)}</p>
+            <div class="verify-grid">
+              <div class="verify-field"><label>Dispatch No.</label><div class="vval mono">${esc(match.dispatch)}</div></div>
+              <div class="verify-field"><label>Status</label><div class="vval">Completed</div></div>
+              <div class="verify-field"><label>Role / Domain</label><div class="vval">${esc(match.role)}</div></div>
+              <div class="verify-field"><label>Course</label><div class="vval">${esc(match.course)}</div></div>
+              <div class="verify-field" style="grid-column:1/-1;"><label>Internship duration</label><div class="vval">${esc(match.duration)}</div></div>
+            </div>
+          </div>`;
+      } else {
+        box.className = 'verify-result show notfound';
+        box.innerHTML = `
+          <div class="verify-status"><span class="vdot"></span>No match found</div>
+          <div class="verify-body verify-notfound">
+            <p>We couldn't find a certificate under that name. Check the spelling, or contact HEXTDIN directly to confirm a certificate's authenticity.</p>
+          </div>`;
+      }
+    }
+
+    btn.addEventListener('click', ()=> render(input.value));
+    input.addEventListener('keydown', e => { if(e.key === 'Enter') render(input.value); });
+  })();
+</script>
+
+</body>
+</html>
